@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/common/common_app_bar.dart';
-import 'package:twitter_clone/common/rounded_button.dart';
+// import 'package:twitter_clone/common/common_app_bar.dart';
+import 'package:twitter_clone/common/common.dart';
 import 'package:twitter_clone/feature/auth/widgets/auth_text_feild.dart';
 import 'package:twitter_clone/theme/color_palette.dart';
 
@@ -26,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: appBar,
       body: SingleChildScrollView(
         child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16),
           // color: Colors.cyan,
           height: height,
           child: Column(
@@ -52,7 +53,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   RoundedButton(
-                    label: "Login",
+                    bgColor: ColorPalette.kWhiteColor,
+                    label: "Signin",
                     onPressed: () {
                       if (kDebugMode) {
                         print("Login pressed");
@@ -66,20 +68,26 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               //TextSpan
               RichText(
-                text: TextSpan(text: "Don't have any account?", children: [
-                  TextSpan(
-                      text: " Signup",
-                      style: const TextStyle(
-                        color: ColorPalette.kBlueColor,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          if (kDebugMode) {
-                            print("signup button pressed");
-                          }
-                        })
-                ]),
+                text: TextSpan(
+                    text: "Don't have any account?",
+                    style: const TextStyle(
+                      color: ColorPalette.kGreyColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    children: [
+                      TextSpan(
+                          text: " Signup",
+                          style: const TextStyle(
+                            color: ColorPalette.kBlueColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              if (kDebugMode) {
+                                print("signup button pressed");
+                              }
+                            })
+                    ]),
               )
             ],
           ),

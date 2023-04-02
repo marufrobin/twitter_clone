@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/feature/auth/screens/login_screen.dart';
+import 'package:twitter_clone/feature/auth/screens/signin_screen.dart';
 import 'package:twitter_clone/theme/app_theme.dart';
 
 void main() {
