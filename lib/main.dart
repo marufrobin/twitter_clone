@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/feature/auth/screens/signin_screen.dart';
+import 'package:twitter_clone/feature/auth/screens/signup_screen.dart';
 import 'package:twitter_clone/theme/app_theme.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class Boot extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: LoginScreen(),
+      home: SignupScreen(),
     );
   }
 }

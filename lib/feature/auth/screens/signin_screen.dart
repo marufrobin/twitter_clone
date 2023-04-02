@@ -6,17 +6,33 @@ import 'package:twitter_clone/common/common.dart';
 import 'package:twitter_clone/feature/auth/widgets/auth_text_feild.dart';
 import 'package:twitter_clone/theme/color_palette.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SigninScreen extends StatefulWidget {
+  const SigninScreen({Key? key}) : super(key: key);
+  static route(BuildContext context) {
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SigninScreen(),
+        ));
+  }
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SigninScreen> createState() => _SigninScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SigninScreenState extends State<SigninScreen> {
   final appBar = CommonAppBar.getAppBar();
   final emailController = TextEditingController();
   final passWordController = TextEditingController();
+  @override
+  void dispose() {
+    emailController.dispose();
+    passWordController.dispose();
+
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var height =
@@ -83,6 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
+                              SigninScreen.route(context);
                               if (kDebugMode) {
                                 print("signup button pressed");
                               }
